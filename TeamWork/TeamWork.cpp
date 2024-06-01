@@ -3,9 +3,46 @@
 
 #include <iostream>
 
-int main()
-{
-    std::cout << "Hello World!\n";
+void selectionSort(int arr[], int n) {
+	for (int i = 0; i < n - 1; ++i) {
+		int minIndex = i;
+		for (int j = i + 1; j < n; ++j) {
+			if (arr[j] < arr[minIndex]) {
+				minIndex = j;
+			}
+		}
+		if (minIndex != i) {
+			std::swap(arr[i], arr[minIndex]);
+		}
+	}
+}
+
+int main() {
+	setlocale(LC_ALL, "rus");
+	const int maxSize = 100; // Максимальный размер массива
+	int n;
+	std::cout << "Введите размер массива (не более " << maxSize << "): ";
+	std::cin >> n;
+	if (n > maxSize || n <= 0) {
+		std::cout << "Ошибка: неверный размер массива\n";
+		return 1;
+	}
+
+	int arr[maxSize];
+	std::cout << "Введите элементы массива:\n";
+	for (int i = 0; i < n; ++i) {
+		std::cin >> arr[i];
+	}
+
+	selectionSort(arr, n);
+
+	std::cout << "Отсортированный массив:\n";
+	for (int i = 0; i < n; ++i) {
+		std::cout << arr[i] << " ";
+	}
+	std::cout << std::endl;
+
+	return 0;
 }
 
 // Запуск программы: CTRL+F5 или меню "Отладка" > "Запуск без отладки"
