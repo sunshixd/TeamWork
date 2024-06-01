@@ -17,6 +17,11 @@ void selectionSort(int arr[], int n) {
 	}
 }
 
+void print()
+{
+	std::cout << "Даня не работает, повторите запрос позже";
+}
+
 int main() {
 	setlocale(LC_ALL, "rus");
 	const int maxSize = 100; // Максимальный размер массива
@@ -25,8 +30,11 @@ int main() {
 	std::cin >> n;
 	if (n > maxSize || n <= 0) {
 		std::cout << "Ошибка: неверный размер массива\n";
+		print();
 		return 1;
 	}
+
+	print();
 
 	int arr[maxSize];
 	std::cout << "Введите элементы массива:\n";
@@ -42,6 +50,9 @@ int main() {
 	}
 	std::cout << std::endl;
 
+
+
+	std::cout << "Close programm..." << endl;
 	return 0;
 }
 
